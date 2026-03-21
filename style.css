@@ -1,65 +1,119 @@
+/* --- General --- */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f0f2f5;
-    color: #1c1e21;
+    background-color: #f8f9fa;
+    color: #343a40;
 }
 
 #app {
-    max-width: 700px;
-    margin: 40px auto;
-    background-color: #ffffff;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
+/* --- Header --- */
 header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 header h1 {
-    margin: 0 0 5px 0;
-    color: #333;
-    font-size: 2em;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
 }
 
 header p {
-    margin: 0;
-    color: #606770;
-    font-size: 1.1em;
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+/* --- Controls (Filters & Search) --- */
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#category-filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #495057;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+    background-color: #e9ecef;
+}
+
+.filter-btn.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
 }
 
 .search-container {
-    margin-bottom: 20px;
+    min-width: 300px;
 }
 
 #search-bar {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #dddfe2;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
     border-radius: 6px;
     font-size: 16px;
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
-#search-bar:focus {
-    outline: none;
-    border-color: #1877f2; /* Facebook blue for focus */
-    box-shadow: 0 0 0 2px #e7f3ff;
+/* --- Items Grid --- */
+#items-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
 }
 
-#search-results-container .item {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    font-size: 16px;
+.item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e9ecef;
 }
 
-#search-results-container .item:last-child {
-    border-bottom: none;
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-#search-results-container .item:hover {
-    background-color: #f5f6f7;
+.card-content {
+    padding: 20px;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.item-category {
+    font-size: 0.9rem;
+    color: #6c757d;
+    background-color: #e9ecef;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
 }

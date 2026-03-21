@@ -9,16 +9,25 @@
 <body>
     <div id="app">
         <header>
-            <h1>Smart Inventory</h1>
-            <p>Your Store Name</p>
+            <h1>Inventory Dashboard</h1>
+            <p>Your Modern Store</p>
         </header>
         
         <main>
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search for items by name...">
+            <!-- Filters and Search -->
+            <div class="controls-container">
+                <div id="category-filters">
+                    <!-- Category buttons will be inserted here by JavaScript -->
+                </div>
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search for items...">
+                </div>
             </div>
-            <!-- Container for search results -->
-            <div id="search-results-container"></div>
+
+            <!-- Items Grid -->
+            <div id="items-grid-container">
+                <!-- Item cards will be inserted here by JavaScript -->
+            </div>
         </main>
     </div>
     <script src="script.js"></script>
