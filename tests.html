@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit Tests</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+  <script>
+    QUnit.module('DOM Tests', function(hooks) {
+      hooks.before(async function() {
+        const response = await fetch('index.html');
+        const text = await response.text();
+        const parser = new DOMParser();
+        this.dom = parser.parseFromString(text, 'text/html');
+      });
+
+      QUnit.test('Page title is correct', function(assert) {
+        assert.equal(this.dom.title, 'Smart Inventory', 'The page title is "Smart Inventory"');
+      });
+
+      QUnit.test('Logo text is correct', function(assert) {
+        const logo = this.dom.querySelector('.logo h2');
+        assert.ok(logo, 'Logo element exists');
+        assert.equal(logo.textContent, 'Smart Inventory', 'The logo text is "Smart Inventory"');
+      });
+
+      QUnit.test('Search input exists', function(assert) {
+        const searchInput = this.dom.querySelector('.header-search input');
+        assert.ok(searchInput, 'Search input element exists');
+        assert.equal(searchInput.placeholder, 'Search for items...', 'The placeholder is correct');
+      });
+
+      QUnit.test('Metric cards are present', function(assert) {
+        const totalItems = this.dom.querySelector('.metric-card h3');
+        assert.ok(totalItems, 'Total items card exists');
+        assert.equal(totalItems.textContent, 'TOTAL ITEMS', 'Total items card has correct title');
+
+        const lowStock = this.dom.querySelectorAll('.metric-card h3')[1];
+        assert.ok(lowStock, 'Low stock card exists');
+        assert.equal(lowStock.textContent, 'LOW STOCK', 'Low stock card has correct title');
+
+        const todaysSales = this.dom.querySelectorAll('.metric-card h3')[2];
+        assert.ok(todaysSales, 'Todays sales card exists');
+        assert.equal(todaysSales.textContent, 'TODAY'S SALES', 'Todays sales card has correct title');
+        
+        const newOrders = this.dom.querySelectorAll('.metric-card h3')[3];
+        assert.ok(newOrders, 'New orders card exists');
+        assert.equal(newOrders.textContent, 'NEW ORDERS', 'New orders card has correct title');
+      });
+
+      QUnit.test('Quick action buttons are present', function(assert) {
+        const newOrderBtn = this.dom.querySelector('#new-order-btn');
+        assert.ok(newOrderBtn, 'New Order button exists');
+        assert.equal(newOrderBtn.textContent, 'New Order', 'New Order button has correct text');
+
+        const addItemBtn = this.dom.querySelector('#add-item-btn');
+        assert.ok(addItemBtn, 'Add New Item button exists');
+        assert.equal(addItemBtn.textContent, 'Add New Item', 'Add New Item button has correct text');
+      });
+    });
+  </script>
+</body>
+</html>

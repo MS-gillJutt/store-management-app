@@ -7,26 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <header>
-            <h1>Inventory Dashboard</h1>
-            <p>Your Modern Store</p>
-        </header>
-        
-        <main>
-            <!-- Filters and Search -->
-            <div class="controls-container">
-                <div id="category-filters">
-                    <!-- Category buttons will be inserted here by JavaScript -->
-                </div>
-                <div class="search-container">
-                    <input type="text" id="search-bar" placeholder="Search for items...">
-                </div>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Smart Inventory</h2>
             </div>
-
-            <!-- Items Grid -->
-            <div id="items-grid-container">
-                <!-- Item cards will be inserted here by JavaScript -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active">Dashboard</a></li>
+                    <li><a href="#">Inventory</a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Customers</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="header-search">
+                    <input type="text" placeholder="Search for items...">
+                </div>
+                <div class="header-user">
+                    <p>Store Manager</p>
+                </div>
+            </header>
+            <section class="dashboard-metrics">
+                <div class="metric-card">
+                    <h3>TOTAL ITEMS</h3>
+                    <p id="total-items">1,250</p>
+                </div>
+                <div class="metric-card">
+                    <h3>LOW STOCK</h3>
+                    <p id="low-stock-items">15</p>
+                </div>
+                <div class="metric-card">
+                    <h3>TODAY'S SALES</h3>
+                    <p id="todays-sales">$1,500</p>
+                </div>
+                <div class="metric-card">
+                    <h3>NEW ORDERS</h3>
+                    <p id="new-orders">3</p>
+                </div>
+            </section>
+            <div class="quick-actions">
+                <button id="new-order-btn">New Order</button>
+                <button id="add-item-btn">Add New Item</button>
             </div>
         </main>
     </div>
