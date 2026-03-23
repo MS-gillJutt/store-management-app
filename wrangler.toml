@@ -2,9 +2,7 @@
 name = "store-management-app"
 main = "_worker.js"
 compatibility_date = "2023-01-01"
-
-[build]
-command = "npm install"
+compatibility_flags = ["nodejs_compat"]
 
 [site]
 bucket = "./public"
