@@ -6,7 +6,7 @@ const { body, validationResult } = require('express-validator');
 
 const app = express();
 app.use(express.json());
-app.use(express.static('.'));
+app.use(express.static('public'));
 
 const saltRounds = 10;
 

@@ -64,4 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('user-name').textContent = firstName;
         }
     }
+
+    const toggleBtn = document.getElementById('toggle-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const toggleIcon = document.querySelector('#toggle-btn i');
+
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                toggleIcon.classList.remove('fa-chevron-left');
+                toggleIcon.classList.add('fa-chevron-right');
+            } else {
+                toggleIcon.classList.remove('fa-chevron-right');
+                toggleIcon.classList.add('fa-chevron-left');
+            }
+        });
+    }
 });

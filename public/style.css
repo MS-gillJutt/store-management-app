@@ -1,0 +1,158 @@
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.logo {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #555;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.menu a:hover, .menu a.active {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.menu i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.sidebar.collapsed .menu span {
+    display: none;
+}
+
+.sidebar-toggle {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 400px;
+}
+
+.header-search i {
+    color: #999;
+    margin-right: 10px;
+}
+
+.header-search input {
+    border: none;
+    outline: none;
+    font-size: 1em;
+    width: 100%;
+}
+
+.header-user {
+    font-size: 1em;
+}
+
+.dashboard-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.metric-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.metric-card h3 {
+    margin: 0;
+    font-size: 1em;
+    color: #777;
+}
+
+.metric-card p {
+    margin: 10px 0 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.quick-actions {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
