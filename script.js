@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
+    const userDashboard = document.getElementById('user-dashboard');
 
     if (loginForm) {
         loginForm.addEventListener('submit', async (event) => {
@@ -23,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('user', JSON.stringify(result.user));
                 window.location.href = 'index.html';
             } else {
-                alert(result.message);
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.textContent = result.message || result.errors[0].msg;
             }
         });
     }
@@ -49,8 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(result.message);
                 window.location.href = 'login.html';
             } else {
-                alert(result.message);
+                const errorDiv = document.getElementById('error-message');
+                errorDiv.textContent = result.error || result.errors[0].msg;
             }
         });
+    }
+
+    if (userDashboard) {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user) {
+            const firstName = user.username.split(' ')[0];
+            document.getElementById('user-name').textContent = firstName;
+        }
     }
 });
