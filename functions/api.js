@@ -1,12 +1,11 @@
 
-const express = require('express');
-const db = require('./database.js');
-const bcrypt = require('bcrypt');
-const { body, validationResult } = require('express-validator');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
+import bcrypt from 'bcrypt';
+import db from '../database.js';
 
 const app = express();
 app.use(express.json());
-app.use(express.static('public'));
 
 const saltRounds = 10;
 
@@ -80,7 +79,4 @@ app.get('/user/:id', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+export const onRequest = app;
